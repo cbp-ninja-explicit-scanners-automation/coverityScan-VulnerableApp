@@ -19,11 +19,9 @@ jobs:
         uses: cloudbees-io/checkout@v1
 
       - name: Install JDK
-        uses: docker://gradle:7.5.1-jdk17
+        uses: docker://eclipse-temurin:17-jdk
         run: |
             java -version
-            gradle -v
-            ./gradlew clean build -x test
         
         # with:
         #     repository: cbp-ninja-explicit-scanners-automation/vulnerable-java-application
