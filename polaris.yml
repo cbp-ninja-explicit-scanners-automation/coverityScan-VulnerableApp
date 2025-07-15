@@ -9,10 +9,9 @@ project:
 capture:
   build:
     cleanCommands:
-      - shell: ["./gradlew", "clean"]
+      - shell: ["/bin/bash", "-c", "./gradlew clean"]
     buildCommands:
-      - shell: ["./gradlew", "build", "-x", "test"]
-
+      - shell: ["/bin/bash", "-c", "./gradlew build -x test -x spotlessJava"]
   fileSystem:
     java:
       files:
