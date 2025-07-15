@@ -1,0 +1,30 @@
+version: "1"
+project:
+  name: VulnerableApp
+  branch: master
+  revision:
+    name: HEAD
+    date: "2025-07-15T00:00:00Z"
+
+capture:
+  build:
+    cleanCommands:
+      - shell: ["./gradlew", "clean"]
+    buildCommands:
+      - shell: ["./gradlew", "build", "-x", "test"]
+
+  fileSystem:
+    java:
+      files:
+        - directory: ${project.projectDir}/src
+
+analyze:
+  mode: central
+  coverity:
+    cov-analyze: ["--security"]
+
+install:
+  coverity:
+    version: default
+
+serverUrl: https://cloudbees.polaris.synopsys.com
