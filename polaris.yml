@@ -8,10 +8,10 @@ project:
 
 capture:
   build:
-    cleanCommands:
-      - shell: ["/bin/bash", "-c", "./gradlew clean"]
+     cleanCommands:
+      - shell: ["/bin/bash", "-c", "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 && export PATH=$JAVA_HOME/bin:$PATH && ./gradlew clean"]
     buildCommands:
-      - shell: ["/bin/bash", "-c", "./gradlew build -x test -x spotlessJava"]
+      - shell: ["/bin/bash", "-c", "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 && export PATH=$JAVA_HOME/bin:$PATH && ./gradlew build -x test -x spotlessJava"]
   fileSystem:
     java:
       files:
