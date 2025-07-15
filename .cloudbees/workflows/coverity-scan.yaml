@@ -17,6 +17,10 @@ jobs:
     steps:
       - name: checkout Source Code
         uses: cloudbees-io/checkout@v1
+
+      - name: Install JDK
+        uses: docker://eclipse-temurin:11-jdk
+        
         # with:
         #     repository: cbp-ninja-explicit-scanners-automation/vulnerable-java-application
       - name: Scan with Coverity on Polaris
